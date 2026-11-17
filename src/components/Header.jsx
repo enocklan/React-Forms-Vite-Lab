@@ -1,14 +1,34 @@
+
 import React from "react";
 
-function Header({ isDarkMode, onDarkModeClick }) {
+function Filter({
+  onCategoryChange,
+  search,
+  onSearchChange,
+  selectedCategory
+}) {
   return (
-    <header>
-      <h2>Shopster</h2>
-      <button onClick={onDarkModeClick}>
-        {isDarkMode ? "Dark" : "Light"} Mode
-      </button>
-    </header>
+    <div className="Filter">
+      <input
+        type="text"
+        name="search"
+        placeholder="Search..."
+        value={search}
+        onChange={onSearchChange}
+      />
+
+      <select
+        name="filter"
+        value={selectedCategory}
+        onChange={onCategoryChange}
+      >
+        <option value="All">Filter by category</option>
+        <option value="Produce">Produce</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Dessert">Dessert</option>
+      </select>
+    </div>
   );
 }
 
-export default Header;
+export default Filter;
